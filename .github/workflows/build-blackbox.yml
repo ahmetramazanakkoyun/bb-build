@@ -16,11 +16,12 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: gradle
-      - uses: android-actions/setup-android@v3
       - name: NDK ve SDK paketleri
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "ndk;29.0.13846066" "platforms;android-35" "build-tools;35.0.0"
+          SDKM=$(ls $ANDROID_HOME/cmdline-tools/*/bin/sdkmanager | head -n 1)
+          echo "sdkmanager: $SDKM"
+          yes | $SDKM --licenses > /dev/null || true
+          $SDKM "ndk;29.0.13846066" "platforms;android-35" "build-tools;35.0.0"
       - run: chmod +x ./gradlew
       - name: Debug APK derle
         run: ./gradlew assembleDebug --no-daemon --stacktrace
