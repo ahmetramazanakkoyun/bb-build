@@ -1,4 +1,4 @@
-[![.github/workflows/build-blackbox.yml](https://github.com/ahmetramazanakkoyun/bb-build/actions/workflows/build-blackbox.yml/badge.svg)](https://github.com/ahmetramazanakkoyun/bb-build/actions/workflows/build-blackbox.yml)name: Build BlackBox APK
+name: Build BlackBox APK
 on:
   workflow_dispatch:
 jobs:
